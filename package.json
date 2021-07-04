@@ -45,6 +45,7 @@
   },
   "devDependencies": {
     "@types/react-router-dom": "^5.1.7",
-    "@types/styled-components": "^5.1.11"
+    "@types/styled-components": "^5.1.11",
+    "svg-sprite-loader": "^6.0.9"
   }
 }
