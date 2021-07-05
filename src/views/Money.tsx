@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import {TagsSection} from './Money/TagsSection';
 import {NumberPadSection} from './Money/NumberPadSection';
 import {NoteSection} from './Money/NoteSection';
+
 import {CategorySection} from './Money/CategorySection';
 
 
@@ -17,12 +18,7 @@ function Money() {
         <MyLayout>
             <TagsSection/>
             <NoteSection/>
-            <CategorySection>
-                <ul>
-                    <li className="selected">支出</li>
-                    <li>收入</li>
-                </ul>
-            </CategorySection>
+            <CategorySection/>
             <NumberPadSection>
                 <div className="output">100</div>
                 <div className="pad clearfix">
