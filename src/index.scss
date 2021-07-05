@@ -33,8 +33,16 @@ body {
   line-height: 1.2;
   font-size: 16px;
 }
-
+button{
+  font-family: inherit;
+}
 .icon {
   width: 1em;
   height: 1em;
+  display: inline-block;
+}
+.clearfix:after{
+  content: '';
+  display: block;
+  clear: both;
 }
