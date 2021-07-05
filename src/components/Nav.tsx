@@ -2,9 +2,6 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import React from 'react';
 import Icon from './Icon';
-require('icons/money.svg');
-require('icons/tag.svg');
-require('icons/statistics.svg')
 
 
 const NavWrapper = styled.nav`
