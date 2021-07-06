@@ -23,12 +23,8 @@ const useTags = () => {
     }
     const updateTag = (id:number, obj:{name:string})=>{
         const index = findTagIndex(id);
-        console.log('index')
-        console.log(index);
         const tagsClone = JSON.parse(JSON.stringify(tags))
         tagsClone.splice(index,1,{id:id,name:obj.name})
-        console.log('newTags');
-        console.log(tagsClone);
         setTags(tagsClone)
     }
     return {tags, setTags, findTag, updateTag};
