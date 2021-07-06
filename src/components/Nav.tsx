@@ -40,7 +40,6 @@ const NavWrapper = styled.nav`
   }
 `;
 
-
 const Nav = () => {
     return (
         <NavWrapper>
