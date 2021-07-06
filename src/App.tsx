@@ -1,14 +1,11 @@
 import React from 'react';
 import './App.css';
-import styled from 'styled-components';
 import {
   HashRouter as Router,
   Switch,
   Route,
-  Link,
   Redirect
 } from "react-router-dom";
-import Nav from './components/Nav';
 import Layout from './components/Layout';
 import Tags from './views/Tags';
 import Money from './views/Money';
