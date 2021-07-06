@@ -11,11 +11,27 @@ const defaultTags = [
 const useTags = () => {
     const [tags, setTags] = useState<{ id: number, name: string }[]>(defaultTags);
     const findTag = (id: number) => tags.filter(tag => tag.id === id)[0];
-    return {
-        tags,
-        setTags,
-        findTag
-    };
+    const findTagIndex = (id: number)=>{
+        let result = -1;
+        for(let i = 0;i<tags.length;i++){
+            if(tags[i].id === id){
+                result = i;
+                break;
+            }
+        }
+        return result;
+    }
+    const updateTag = (id:number, obj:{name:string})=>{
+        const index = findTagIndex(id);
+        console.log('index')
+        console.log(index);
+        const tagsClone = JSON.parse(JSON.stringify(tags))
+        tagsClone.splice(index,1,{id:id,name:obj.name})
+        console.log('newTags');
+        console.log(tagsClone);
+        setTags(tagsClone)
+    }
+    return {tags, setTags, findTag, updateTag};
 };
 
 export {useTags};
