@@ -1,5 +1,5 @@
 import React from 'react';
-import {useTags} from '../useTags';
+import {useTags} from '../hooks/useTags';
 import {useParams, useHistory} from 'react-router-dom';
 import Layout from './Layout';
 import Icon from './Icon';
@@ -68,6 +68,4 @@ const Tag: React.FC = (props) => {
 }
 ;
 
-export
-{Tag}
-;
+export {Tag};
