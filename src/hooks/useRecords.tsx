@@ -3,7 +3,7 @@ import {useUpdate} from './useUpdate';
 
 type newRecordItem = Omit<RecordItem, 'createAt'>
 
-type RecordItem = {
+export type RecordItem = {
     tagIds: number[];
     note: string;
     category: '-' | '+';
