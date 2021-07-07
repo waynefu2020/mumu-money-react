@@ -29,7 +29,7 @@ const Header = styled.h3`
   font-size: 18px;
   line-height: 20px;
   padding: 10px 16px;
-`
+`;
 
 function Statistics() {
     const [category, setCategory] = useState<'-' | '+'>('-');
@@ -51,7 +51,6 @@ function Statistics() {
         if (a[0] < b[0]) {return -1;}
         return 0;
     });
-    console.log(array);
     return (
         <Layout>
             <CategoryWrapper>
@@ -59,7 +58,7 @@ function Statistics() {
                                  onChange={(value) => setCategory(value)}
                 />
             </CategoryWrapper>
-            {array.map(([date, records])=><div>
+            {array.map(([date, records]) => <div>
                 <Header>{date}</Header>
                 <div>
                     {records.map(r => {
@@ -67,8 +66,8 @@ function Statistics() {
                             <div className="tags oneLine">
                                 {r.tagIds
                                     .map(tagId => <span key={tagId}>{getName(tagId)}</span>)
-                                    .reduce((result, span,index,array)=>
-                                        result.concat(index<array.length-1 ? [span,'、'] : [span]),[] as ReactNode[])
+                                    .reduce((result, span, index, array) =>
+                                        result.concat(index < array.length - 1 ? [span, '、'] : [span]), [] as ReactNode[])
                                 }
                             </div>
                             {r.note && <div className="notes">
