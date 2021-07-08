@@ -6,7 +6,6 @@ type Props = {
     value: string,
     onChange: (value: string) => void
 }
-
 const NoteSection: React.FC<Props> = (props) => {
     const note = props.value
     const onChange:ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -23,8 +22,9 @@ const NoteSection: React.FC<Props> = (props) => {
 
 const Wrapper = styled.section`
   background: white;
-  border: 2px solid #f8f9fb;
   font-size: 14px;
-  
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 `;
 export {NoteSection};

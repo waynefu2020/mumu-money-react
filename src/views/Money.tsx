@@ -6,6 +6,7 @@ import {NumberPadSection} from './Money/NumberPadSection';
 import {NoteSection} from './Money/NoteSection';
 import {CategorySection} from './Money/CategorySection';
 import {useRecords} from '../hooks/useRecords';
+import {DateSelector} from '../components/DateSelector';
 
 
 const MyLayout = styled(Layout)`
@@ -15,6 +16,12 @@ const MyLayout = styled(Layout)`
 
 const CategoryWrapper = styled.div`
   background: white;
+`
+const NoteWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #f8f9fb;
 `
 
 type Category = '-' | '+';
@@ -49,9 +56,12 @@ function Money() {
             </CategoryWrapper>
             <TagsSection value={selected.tagIds}
                          onChange={(tagIds) => onChange({tagIds})}/>
-            <NoteSection value={selected.note}
-                         onChange={(note) => onChange({note})}
-            />
+            <NoteWrapper>
+                <NoteSection value={selected.note}
+                             onChange={(note) => onChange({note})}
+                />
+                <DateSelector/>
+            </NoteWrapper>
             <NumberPadSection value={selected.amount}
                               onChange={(amount) => onChange({amount})}
                               onOk={submit}

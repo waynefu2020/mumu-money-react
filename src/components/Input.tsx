@@ -4,7 +4,6 @@ import styled from 'styled-components';
 const Label = styled.label`
   display: flex;
   align-items: center;
-
   > span {
     margin-right: 16px;
     white-space: nowrap;
@@ -13,7 +12,7 @@ const Label = styled.label`
   > input {
     display: block;
     width: 100%;
-    height: 44px;
+    height: 36px;
     background: none;
     border: none;
   }

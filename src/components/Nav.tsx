@@ -30,7 +30,7 @@ const NavWrapper = styled.nav`
         }
         &.selected{
           > .icon{
-            fill: #ff6e66;
+            fill: #e66862;
           }
         }
       }

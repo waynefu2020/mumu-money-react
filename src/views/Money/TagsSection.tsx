@@ -20,9 +20,7 @@ const TagsSection: React.FC<Props> = (props) => {
             props.onChange([...selectedTagIds, tagId]);
         }
     };
-    const onToggleIconTag = () =>{
 
-    }
     const getClass = (tagId: number) => selectedTagIds.indexOf(tagId) >= 0 ? 'selected' : '';
     return (
         <Wrapper>
