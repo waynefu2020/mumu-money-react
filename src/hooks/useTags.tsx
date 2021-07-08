@@ -6,7 +6,8 @@ import {defaultTags} from '../constants/defaultTags';
 type IconTag = {
     id: number,
     name: string,
-    svg: string
+    svg: string,
+    type: 'expense' | 'income'
 }
 
 const useTags = () => {

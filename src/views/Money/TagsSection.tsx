@@ -20,6 +20,7 @@ const TagsSection: React.FC<Props> = (props) => {
             props.onChange([...selectedTagIds, tagId]);
         }
     };
+
     const selectTag = (tagId: number)=>{
         const index = selectedTagIds.indexOf(tagId);
         if (index >= 0) {
