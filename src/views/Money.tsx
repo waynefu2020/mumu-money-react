@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import {TagsSection} from './Money/TagsSection';
 import {NumberPadSection} from './Money/NumberPadSection';
 import {NoteSection} from './Money/NoteSection';
-
 import {CategorySection} from './Money/CategorySection';
 import {useRecords} from '../hooks/useRecords';
 
@@ -15,7 +14,7 @@ const MyLayout = styled(Layout)`
 `;
 
 const CategoryWrapper = styled.div`
-  background: #c4c4c4;
+  background: white;
 `
 
 type Category = '-' | '+';
@@ -43,16 +42,16 @@ function Money() {
     }
     return (
         <MyLayout scrollTop={9999}>
+            <CategoryWrapper>
+                <CategorySection value={selected.category}
+                                 onChange={(category) => onChange({category})}
+                />
+            </CategoryWrapper>
             <TagsSection value={selected.tagIds}
                          onChange={(tagIds) => onChange({tagIds})}/>
             <NoteSection value={selected.note}
                          onChange={(note) => onChange({note})}
             />
-            <CategoryWrapper>
-            <CategorySection value={selected.category}
-                             onChange={(category) => onChange({category})}
-            />
-            </CategoryWrapper>
             <NumberPadSection value={selected.amount}
                               onChange={(amount) => onChange({amount})}
                               onOk={submit}

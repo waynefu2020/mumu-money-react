@@ -24,8 +24,8 @@ const NavWrapper = styled.nav`
         padding: 4px 0;
 
         > .icon {
-          width: 22px;
-          height: 22px;
+          width: 24px;
+          height: 24px;
           fill: #595959;
         }
         &.selected{
