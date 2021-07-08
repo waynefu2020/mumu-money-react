@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React, {ChangeEventHandler, useRef} from 'react';
+import React, {ChangeEventHandler} from 'react';
 import {Input} from '../../components/Input';
 
 type Props = {
@@ -9,11 +9,9 @@ type Props = {
 
 const NoteSection: React.FC<Props> = (props) => {
     const note = props.value
-    const refInput = useRef<HTMLInputElement>(null);
     const onChange:ChangeEventHandler<HTMLInputElement> = (e) => {
         props.onChange(e.target.value)
     };
-    console.log(note);
     return (
         <Wrapper>
             <Input label="备注" type="text"

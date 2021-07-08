@@ -17,7 +17,6 @@ import {Tag} from './components/Tag';
 function App() {
   return (
       <Router>
-          <Layout>
               <Switch>
                   <Route exact path="/tags/:id">
                       <Tag />
@@ -36,7 +35,6 @@ function App() {
                       <NoMatch />
                   </Route>
               </Switch>
-          </Layout>
       </Router>
   );
 }
