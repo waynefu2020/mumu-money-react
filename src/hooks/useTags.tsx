@@ -1,9 +1,24 @@
 import {useEffect, useState} from 'react';
 import {createId} from '../lib/createId';
 import {useUpdate} from './useUpdate';
+import {defaultTags} from '../constants/defaultTags';
+
+type IconTag = {
+    id: number,
+    name: string,
+    svg: string
+}
 
 const useTags = () => {
     const [tags, setTags] = useState<{ id: number, name: string }[]>([]);
+    const [iconTags, setIconTags] = useState<IconTag[]>([])
+    useEffect(()=>{
+        let localTags2 = JSON.parse(window.localStorage.getItem('iconTags') ||'[]');
+        if(localTags2.length ===0){
+            localTags2 = defaultTags
+        }
+        setIconTags(localTags2)
+    },[])
     useEffect(() => {
         let localTags = JSON.parse(window.localStorage.getItem('tags') || '[]');
         if (localTags.length === 0) {
@@ -47,7 +62,7 @@ const useTags = () => {
         const tag = tags.filter(t=>t.id===id)[0]
         return tag ? tag.name : '';
     }
-    return {tags, setTags, findTag, updateTag, findTagIndex, deleteTag, addTag, getName};
+    return {tags, setTags, iconTags, setIconTags, findTag, updateTag, findTagIndex, deleteTag, addTag, getName};
 };
 
 export {useTags};

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {useTags} from '../../hooks/useTags';
+import Icon from '../../components/Icon';
 
 type Props = {
     value: number[];
@@ -8,7 +9,7 @@ type Props = {
 }
 
 const TagsSection: React.FC<Props> = (props) => {
-    const {tags, addTag} = useTags();
+    const {tags, iconTags, addTag} = useTags();
     const selectedTagIds = props.value;
 
     const onToggleTag = (tagId: number) => {
@@ -29,6 +30,16 @@ const TagsSection: React.FC<Props> = (props) => {
                         className={getClass(tag.id)}
                     >{tag.name}</li>
                 )}
+                {iconTags.map(t=>
+                    <li key={t.id}>
+                        {t.name}
+                        <Icon name={t.svg}/>
+                    </li>
+                )}
+                <li>
+                    管理
+                    <Icon name="setting"/>
+                </li>
             </ol>
             <button onClick={addTag}>新增标签</button>
         </Wrapper>
