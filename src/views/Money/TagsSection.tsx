@@ -20,18 +20,27 @@ const TagsSection: React.FC<Props> = (props) => {
             props.onChange([...selectedTagIds, tagId]);
         }
     };
+    const selectTag = (tagId: number)=>{
+        const index = selectedTagIds.indexOf(tagId);
+        if (index >= 0) {
+            props.onChange(selectedTagIds.filter(t => t !== tagId));
+        } else {
+            props.onChange([tagId]);
+        }
+    }
 
     const getClass = (tagId: number) => selectedTagIds.indexOf(tagId) >= 0 ? 'selected' : '';
     return (
         <Wrapper>
             <ol>
-                {tags.map(tag =>
-                    <li key={tag.id} onClick={() => {onToggleTag(tag.id);}}
-                        className={getClass(tag.id)}
-                    >{tag.name}</li>
-                )}
+                {/*{tags.map(tag =>*/}
+                {/*    <li key={tag.id} onClick={() => {onToggleTag(tag.id);}}*/}
+                {/*        className={getClass(tag.id)}*/}
+                {/*    >{tag.name}</li>*/}
+                {/*)}*/}
                 {iconTags.map(t=>
-                    <li key={t.id}>
+                    <li key={t.id} onClick={() => {selectTag(t.id);}}
+                        className={getClass(t.id)}>
                         <Icon name={t.svg}/>
                         {t.name}
                     </li>
