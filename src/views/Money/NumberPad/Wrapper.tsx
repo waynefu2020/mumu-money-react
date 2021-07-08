@@ -8,10 +8,11 @@ const Wrapper = styled.section`
     background: white;
     font-size: 36px;
     line-height: 72px;
-    text-align: right;
+    text-align: left;
     padding: 0 16px;
     box-shadow: inset 0 -5px 5px -5px rgba(0, 0, 0, 0.25),
     inset 0 5px 5px -5px rgba(0, 0, 0, 0.25);
+    color: #ef8871;
   }
 
   > .pad {

@@ -19,8 +19,10 @@ const TagsSection: React.FC<Props> = (props) => {
         } else {
             props.onChange([...selectedTagIds, tagId]);
         }
-
     };
+    const onToggleIconTag = () =>{
+
+    }
     const getClass = (tagId: number) => selectedTagIds.indexOf(tagId) >= 0 ? 'selected' : '';
     return (
         <Wrapper>
@@ -32,13 +34,13 @@ const TagsSection: React.FC<Props> = (props) => {
                 )}
                 {iconTags.map(t=>
                     <li key={t.id}>
-                        {t.name}
                         <Icon name={t.svg}/>
+                        {t.name}
                     </li>
                 )}
                 <li>
-                    管理
                     <Icon name="setting"/>
+                    管理
                 </li>
             </ol>
             <button onClick={addTag}>新增标签</button>
@@ -52,23 +54,34 @@ const Wrapper = styled.section`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: flex-start;
 
   > ol {
     margin: 0 -12px;
-
+    display: flex;
+    flex-wrap: wrap;
     > li {
-      background: #D9D9D9;
-      border-radius: 18px;
-      display: inline-block;
+      background: #f6f6f7;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       padding: 3px 18px;
       font-size: 14px;
       margin: 8px 12px;
-
+      > svg{
+        margin: 4px 0;
+        width: 20px;
+        height: 20px;
+      }
       &.selected {
         background: #ef8871;
         color: white;
+        > svg{
+          fill: white;
+        }
       }
     }
   }

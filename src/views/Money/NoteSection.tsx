@@ -14,16 +14,16 @@ const NoteSection: React.FC<Props> = (props) => {
     };
     return (
         <Wrapper>
-            <Input label="备注" type="text"
-                   value={note} onChange={onChange} placeholder="点击填写备注"
+            <Input label="" type="text"
+                   value={note} onChange={onChange} placeholder="请输入备注信息"
             />
         </Wrapper>
     );
 };
 
 const Wrapper = styled.section`
-  background: #f5f5f5;
-  padding: 14px 16px;
+  background: white;
+  border: 2px solid #f8f9fb;
   font-size: 14px;
   
 `;
