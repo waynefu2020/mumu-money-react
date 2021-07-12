@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import {useTags} from '../../hooks/useTags';
 import Icon from '../../components/Icon';
+import {NavLink} from 'react-router-dom';
 
-type Props = {
+export type Props = {
     value: number[];
     onChange: (selected: number[]) => void;
 }
@@ -11,7 +12,6 @@ type Props = {
 const TagsSection: React.FC<Props> = (props) => {
     const {tags, iconTags, addTag} = useTags();
     const selectedTagIds = props.value;
-
     const onToggleTag = (tagId: number) => {
         const index = selectedTagIds.indexOf(tagId);
         if (index >= 0) {
@@ -47,8 +47,10 @@ const TagsSection: React.FC<Props> = (props) => {
                     </li>
                 )}
                 <li>
-                    <Icon name="setting"/>
-                    管理
+                    <NavLink to="/setting">
+                        <Icon name="setting"/>
+                        管理
+                    </NavLink>
                 </li>
             </ol>
             <button onClick={addTag}>新增标签</button>
@@ -69,6 +71,7 @@ const Wrapper = styled.section`
     margin: 0 -12px;
     display: flex;
     flex-wrap: wrap;
+    
     > li {
       background: #f6f6f7;
       border-radius: 10px;
@@ -79,6 +82,21 @@ const Wrapper = styled.section`
       padding: 3px 18px;
       font-size: 14px;
       margin: 8px 12px;
+        > a{
+          color: black;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          font-size: 14px;
+          background: transparent;
+          > svg{
+            margin: 4px 0;
+            width: 20px;
+            height: 20px;
+          }
+        }
+        
       > svg{
         margin: 4px 0;
         width: 20px;

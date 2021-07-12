@@ -12,6 +12,7 @@ import Money from './views/Money';
 import Statistics from './views/Statistics';
 import NoMatch from './views/NoMatch';
 import {Tag} from './components/Tag';
+import {Setting} from './views/Money/Setting';
 
 
 function App() {
@@ -26,6 +27,9 @@ function App() {
                   </Route>
                   <Route exact path="/money">
                       <Money />
+                  </Route>
+                  <Route exact path="/setting">
+                      <Setting />
                   </Route>
                   <Route exact path="/statistics">
                       <Statistics />

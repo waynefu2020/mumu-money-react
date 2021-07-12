@@ -1,15 +1,22 @@
 import styled from 'styled-components';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import {useTags} from '../../hooks/useTags';
+import Icon from '../../components/Icon';
+import { Tabs } from 'antd';
 
 type Props = {
     value: '-'| '+',
-    onChange: (value:'-'| '+') => void;
+    onChange: (value:'-'| '+') => void
 }
 
 const CategorySection: React.FC<Props> = (props) => {
+    const { TabPane } = Tabs;
     const categoryMap = {'-': '支出', '+': '收入'};
     const [categoryList] = useState<('-' | '+')[]>(['-', '+']);
-    const category = props.value
+    const category = props.value;
+    const {iconTags} = useTags()
+    const itemList = iconTags
+    const itemListMap = {'expense':'-','+':'income'}
     return (
         <Wrapper>
             <ul>

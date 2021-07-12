@@ -1,5 +1,5 @@
 import Layout from '../components/Layout';
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import styled from 'styled-components';
 import {TagsSection} from './Money/TagsSection';
 import {NumberPadSection} from './Money/NumberPadSection';
@@ -14,7 +14,7 @@ const MyLayout = styled(Layout)`
   flex-direction: column;
 `;
 
-const CategoryWrapper = styled.div`
+export const CategoryWrapper = styled.div`
   background: white;
 `
 const NoteWrapper = styled.div`
@@ -26,12 +26,13 @@ const NoteWrapper = styled.div`
 
 type Category = '-' | '+';
 
-const defaultFormData = {
+export const defaultFormData = {
     tagIds: [] as number[],
     note: '',
     category: '-' as Category,
     amount: 0
 }
+
 
 function Money() {
     const [selected, setSelected] = useState(defaultFormData);
