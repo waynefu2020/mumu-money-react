@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import {useTags} from '../../hooks/useTags';
 import Icon from '../../components/Icon';
 import {NavLink} from 'react-router-dom';
+import {CategorySection} from './CategorySection';
 
 export type Props = {
     value: number[];
@@ -11,6 +12,8 @@ export type Props = {
 
 const TagsSection: React.FC<Props> = (props) => {
     const {tags, iconTags, addTag} = useTags();
+    const [category, setCategory] = useState<'-'|'+'>('-')
+    const categoryTagItem = iconTags.filter(i=>i.type===category)
     const selectedTagIds = props.value;
     const onToggleTag = (tagId: number) => {
         const index = selectedTagIds.indexOf(tagId);
@@ -32,29 +35,33 @@ const TagsSection: React.FC<Props> = (props) => {
 
     const getClass = (tagId: number) => selectedTagIds.indexOf(tagId) >= 0 ? 'selected' : '';
     return (
-        <Wrapper>
-            <ol>
-                {/*{tags.map(tag =>*/}
-                {/*    <li key={tag.id} onClick={() => {onToggleTag(tag.id);}}*/}
-                {/*        className={getClass(tag.id)}*/}
-                {/*    >{tag.name}</li>*/}
-                {/*)}*/}
-                {iconTags.map(t=>
-                    <li key={t.id} onClick={() => {selectTag(t.id);}}
-                        className={getClass(t.id)}>
-                        <Icon name={t.svg}/>
-                        {t.name}
+        <div>
+            <CategorySection value={category} onChange={(value)=>{setCategory(value)}}/>
+            <Wrapper>
+                <ol>
+                    {/*{tags.map(tag =>*/}
+                    {/*    <li key={tag.id} onClick={() => {onToggleTag(tag.id);}}*/}
+                    {/*        className={getClass(tag.id)}*/}
+                    {/*    >{tag.name}</li>*/}
+                    {/*)}*/}
+                    {categoryTagItem.map(t=>
+                        <li key={t.id} onClick={() => {selectTag(t.id);}}
+                            className={getClass(t.id)}>
+                            <Icon name={t.svg}/>
+                            {t.name}
+                        </li>
+                    )}
+                    <li>
+                        <NavLink to="/setting">
+                            <Icon name="setting"/>
+                            管理
+                        </NavLink>
                     </li>
-                )}
-                <li>
-                    <NavLink to="/setting">
-                        <Icon name="setting"/>
-                        管理
-                    </NavLink>
-                </li>
-            </ol>
-            <button onClick={addTag}>新增标签</button>
-        </Wrapper>
+                </ol>
+                <button onClick={addTag}>新增标签</button>
+            </Wrapper>
+        </div>
+
     );
 };
 

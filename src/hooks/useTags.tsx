@@ -7,19 +7,19 @@ type IconTag = {
     id: number,
     name: string,
     svg: string,
-    type: 'expense' | 'income'
+    type: '-' | '+'
 }
 
 const useTags = () => {
     const [tags, setTags] = useState<{ id: number, name: string }[]>([]);
-    const [iconTags, setIconTags] = useState<IconTag[]>([])
-    useEffect(()=>{
-        let localTags2 = JSON.parse(window.localStorage.getItem('iconTags') ||'[]');
-        if(localTags2.length ===0){
-            localTags2 = defaultTags
-        }
-        setIconTags(localTags2)
-    },[])
+    const [iconTags, setIconTags] = useState(defaultTags)
+    // useEffect(()=>{
+    //     let localTags2 = JSON.parse(window.localStorage.getItem('iconTags') ||'[]');
+    //     if(localTags2.length ===0){
+    //         localTags2 = defaultTags
+    //     }
+    //     setIconTags(localTags2)
+    // },[])
     useEffect(() => {
         let localTags = JSON.parse(window.localStorage.getItem('tags') || '[]');
         if (localTags.length === 0) {
