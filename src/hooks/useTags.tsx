@@ -12,30 +12,31 @@ type IconTag = {
 
 const useTags = () => {
     const [tags, setTags] = useState<{ id: number, name: string }[]>([]);
-    const [iconTags, setIconTags] = useState(defaultTags)
-    // useEffect(()=>{
-    //     let localTags2 = JSON.parse(window.localStorage.getItem('iconTags') ||'[]');
-    //     if(localTags2.length ===0){
-    //         localTags2 = defaultTags
-    //     }
-    //     setIconTags(localTags2)
-    // },[])
-    useEffect(() => {
-        let localTags = JSON.parse(window.localStorage.getItem('tags') || '[]');
-        if (localTags.length === 0) {
-            localTags = [
-                {id: createId(), name: '衣服'},
-                {id: createId(), name: '食物'},
-                {id: createId(), name: '住房'},
-                {id: createId(), name: '交通'}
-            ];
+    const [iconTags, setIconTags] = useState<IconTag[]>([])
+    useEffect(()=>{
+        let localTags2 = JSON.parse(window.localStorage.getItem('iconTags') ||'[]');
+        if(localTags2.length ===0){
+            localTags2 = defaultTags
         }
-        setTags(localTags)
-    }, []);
+        setIconTags(localTags2)
+    },[])
+    // useEffect(() => {
+    //     let localTags = JSON.parse(window.localStorage.getItem('tags') || '[]');
+    //     if (localTags.length === 0) {
+    //         localTags = [
+    //             {id: createId(), name: '衣服'},
+    //             {id: createId(), name: '食物'},
+    //             {id: createId(), name: '住房'},
+    //             {id: createId(), name: '交通'}
+    //         ];
+    //     }
+    //     setTags(localTags)
+    // }, []);
     useUpdate(() => {
-        window.localStorage.setItem('tags', JSON.stringify(tags));
-    }, tags);
+        window.localStorage.setItem('iconTags', JSON.stringify(iconTags));
+    }, iconTags);
     const findTag = (id: number) => tags.filter(tag => tag.id === id)[0];
+    const findIconTag = (id: number) => iconTags.filter(item=>item.id===id)[0];
     const findTagIndex = (id: number) => {
         let result = -1;
         for (let i = 0; i < tags.length; i++) {

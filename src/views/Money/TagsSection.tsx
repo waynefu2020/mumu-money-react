@@ -37,13 +37,8 @@ const TagsSection: React.FC<Props> = (props) => {
     return (
         <div>
             <CategorySection value={category} onChange={(value)=>{setCategory(value)}}/>
-            <Wrapper>
+            <CategoryItemWrapper>
                 <ol>
-                    {/*{tags.map(tag =>*/}
-                    {/*    <li key={tag.id} onClick={() => {onToggleTag(tag.id);}}*/}
-                    {/*        className={getClass(tag.id)}*/}
-                    {/*    >{tag.name}</li>*/}
-                    {/*)}*/}
                     {categoryTagItem.map(t=>
                         <li key={t.id} onClick={() => {selectTag(t.id);}}
                             className={getClass(t.id)}>
@@ -59,13 +54,13 @@ const TagsSection: React.FC<Props> = (props) => {
                     </li>
                 </ol>
                 <button onClick={addTag}>新增标签</button>
-            </Wrapper>
+            </CategoryItemWrapper>
         </div>
 
     );
 };
 
-const Wrapper = styled.section`
+export const CategoryItemWrapper = styled.section`
   background: #FFFFFF;
   padding: 12px 16px;
   flex-grow: 1;
